@@ -74,6 +74,11 @@ def load_pickle(pickle_file):
 
 
 def seed_everything(seed):
+    if isinstance(seed, torch.Tensor):
+        seed = seed.item()
+    if isinstance(seed, np.generic):
+        seed = seed.item()
+    seed = int(seed)
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)

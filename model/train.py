@@ -12,6 +12,7 @@ import yaml
 import json
 import sys
 import copy
+from pathlib import Path
 
 sys.path.append("..")
 from lib.utils import (
@@ -214,12 +215,15 @@ def test_model(model, testset_loader, log=None):
 if __name__ == "__main__":
     # -------------------------- set running environment ------------------------- #
 
+    ROOT_DIR = Path(__file__).resolve().parents[1]
+    MODEL_DIR = Path(__file__).resolve().parent
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--dataset", type=str, default="pems08")
     parser.add_argument("-g", "--gpu_num", type=int, default=0)
     args = parser.parse_args()
 
-    seed = torch.randint(1000, (1,)) # set random seed here
+    seed = int(torch.randint(1000, (1,)).item())  # set random seed here
     seed_everything(seed)
     set_cpu_num(1)
 
@@ -229,10 +233,10 @@ if __name__ == "__main__":
 
     dataset = args.dataset
     dataset = dataset.upper()
-    data_path = f"../data/{dataset}"
+    data_path = ROOT_DIR / "data" / dataset
     model_name = STAEformer.__name__
 
-    with open(f"{model_name}.yaml", "r") as f:
+    with open(MODEL_DIR / f"{model_name}.yaml", "r") as f:
         cfg = yaml.safe_load(f)
     cfg = cfg[dataset]
 
@@ -243,7 +247,7 @@ if __name__ == "__main__":
     # ------------------------------- make log file ------------------------------ #
 
     now = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    log_path = f"../logs/"
+    log_path = ROOT_DIR / "logs"
     if not os.path.exists(log_path):
         os.makedirs(log_path)
     log = os.path.join(log_path, f"{model_name}-{dataset}-{now}.log")
@@ -270,7 +274,7 @@ if __name__ == "__main__":
 
     # --------------------------- set model saving path -------------------------- #
 
-    save_path = f"../saved_models/"
+    save_path = ROOT_DIR / "saved_models"
     if not os.path.exists(save_path):
         os.makedirs(save_path)
     save = os.path.join(save_path, f"{model_name}-{dataset}-{now}.pt")
@@ -294,7 +298,6 @@ if __name__ == "__main__":
         optimizer,
         milestones=cfg["milestones"],
         gamma=cfg.get("lr_decay_rate", 0.1),
-        verbose=False,
     )
 
     # --------------------------- print model structure -------------------------- #
