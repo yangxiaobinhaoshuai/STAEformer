@@ -219,7 +219,7 @@ if __name__ == "__main__":
     parser.add_argument("-g", "--gpu_num", type=int, default=0)
     args = parser.parse_args()
 
-    seed = torch.randint(1000, (1,)) # set random seed here
+    seed = torch.randint(1000, (1,)).item() # set random seed here
     seed_everything(seed)
     set_cpu_num(1)
 
