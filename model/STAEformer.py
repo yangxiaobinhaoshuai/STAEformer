@@ -190,7 +190,7 @@ class STAEformer(nn.Module):
         )
 
     def forward(self, x):
-        breakpoint()
+        # breakpoint()
         # x: (batch_size, in_steps, num_nodes, input_dim+tod+dow=3)
         batch_size = x.shape[0]
 
