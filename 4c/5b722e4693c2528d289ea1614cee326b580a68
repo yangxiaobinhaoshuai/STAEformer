@@ -1,0 +1,46 @@
+stae-std/README.md
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-65
+stae-std/config.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-123
+stae1/config.py
+  h_c17f9147a0a04a 1-114
+stae-std/utils.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-38
+stae-std/metrics.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-59
+stae-std/train.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-301
+stae-std/model.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-290
+stae1/data.py
+  h_c17f9147a0a04a 1-96
+stae_plan.md
+  s_5a9c299dbb0130::t_3f7740d6aab701 1-455,457-461,463-587
+  h_c17f9147a0a04a 588-626
+  s_5a9c299dbb0130::t_ec6c7cb250cac4 456,462
+stae1/metrics.py
+  h_c17f9147a0a04a 1-53
+stae-std/data.py
+  s_5a9c299dbb0130::t_664e0b34c562ff 1-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "4c5b722e4693c2528d289ea1614cee326b580a68",
+  "prompts": {},
+  "humans": {
+    "h_c17f9147a0a04a": {
+      "author": "yangxiaobin01 <yangxiaobin01@zuoyebang.com>"
+    }
+  },
+  "sessions": {
+    "s_5a9c299dbb0130": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f91d9-69fc-7320-8bd4-e2d4a6f9ec7f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yangxiaobin01 <yangxiaobin01@zuoyebang.com>"
+    }
+  }
+}
