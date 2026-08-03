@@ -53,3 +53,9 @@ python train.py -d <dataset> -g <gpu_id>
 - PEMS04
 - PEMS07
 - PEMS08
+
+
+
+### Cmds
+
+uv run python train.py -d PEMS04 -g 1
